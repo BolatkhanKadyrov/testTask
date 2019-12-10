@@ -7,13 +7,13 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PostModel {
     private long userId;
-    private long id;
+    private int id;
     private String title;
     private String body;
 
     PostModel(
             long userId,
-            long id,
+            int id,
             String title,
             String body
     ) {
@@ -24,5 +24,31 @@ public class PostModel {
     }
 
     PostModel() {
+    }
+
+    @Override
+    public String toString() {
+        return "PostModel{" +
+                "userId=" + userId +
+                ", id=" + id +
+                ", title='" + title + '\'' +
+                ", body='" + body + '\'' +
+                '}';
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

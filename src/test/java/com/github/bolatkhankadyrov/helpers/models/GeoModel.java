@@ -19,4 +19,12 @@ public class GeoModel {
 
     GeoModel() {
     }
+
+    @Override
+    public String toString() {
+        return "GeoModel{" +
+                "lat=" + lat +
+                ", lng=" + lng +
+                '}';
+    }
 }

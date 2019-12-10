@@ -30,4 +30,15 @@ public class AddressModel {
 
     AddressModel() {
     }
+
+    @Override
+    public String toString() {
+        return "AddressModel{" +
+                "street='" + street + '\'' +
+                ", suite='" + suite + '\'' +
+                ", city='" + city + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", geo=" + geo +
+                '}';
+    }
 }

@@ -22,4 +22,13 @@ public class CompanyModel {
 
     CompanyModel() {
     }
+
+    @Override
+    public String toString() {
+        return "CompanyModel{" +
+                "name='" + name + '\'' +
+                ", catchPhrase='" + catchPhrase + '\'' +
+                ", bs='" + bs + '\'' +
+                '}';
+    }
 }

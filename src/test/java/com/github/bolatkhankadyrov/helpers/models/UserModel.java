@@ -2,12 +2,11 @@ package com.github.bolatkhankadyrov.helpers.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserModel {
-    private Long id;
+    private long id;
     private String name;
     private String username;
     private String email;
@@ -39,71 +38,89 @@ public class UserModel {
     public UserModel() {
     }
 
-    public String getUsername() {
-        return username;
+    @Override
+    public String toString() {
+        return "UserModel{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", address=" + address +
+                ", phone='" + phone + '\'' +
+                ", website='" + website + '\'' +
+                ", company=" + company +
+                '}';
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public AddressModel getAddress() {
-        return address;
-    }
-
-    public void setAddress(AddressModel address) {
-        this.address = address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getWebsite() {
-        return website;
-    }
-
-    public void setWebsite(String website) {
-        this.website = website;
-    }
-
-    public CompanyModel getCompany() {
-        return company;
-    }
-
-    public void setCompany(CompanyModel company) {
-        this.company = company;
-    }
-
-    public String getStringId() {
-        return id.toString();
-    }
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public UserModel setId(long id) {
         this.id = id;
+        return this;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public UserModel setName(String name) {
         this.name = name;
+        return this;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public UserModel setUsername(String username) {
+        this.username = username;
+        return this;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public UserModel setEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public AddressModel getAddress() {
+        return address;
+    }
+
+    public UserModel setAddress(AddressModel address) {
+        this.address = address;
+        return this;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public UserModel setPhone(String phone) {
+        this.phone = phone;
+        return this;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public UserModel setWebsite(String website) {
+        this.website = website;
+        return this;
+    }
+
+    public CompanyModel getCompany() {
+        return company;
+    }
+
+    public UserModel setCompany(CompanyModel company) {
+        this.company = company;
+        return this;
     }
 }
