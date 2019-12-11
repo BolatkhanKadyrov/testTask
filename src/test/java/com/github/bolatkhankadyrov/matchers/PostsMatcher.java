@@ -1,16 +1,18 @@
 package com.github.bolatkhankadyrov.matchers;
 
 import com.github.bolatkhankadyrov.helpers.models.PostModel;
+import org.junit.Assert;
 
 import java.util.List;
 
 public class PostsMatcher {
-    public static void postsHasCorrectUserId(List<PostModel> posts, long userId){
+    public static void postsHasCorrectUserId(List<PostModel> posts, Long userId) {
         for (PostModel post : posts) {
-            if (!post.getUserId().equals(userId)) {
-                System.out.println("Post with id:" + post.getId() + "has wrong userId");
-                throw new AssertionError();
-            }
+            Assert.assertEquals(
+                    "Post with id:" + post.getId() + "has wrong userId",
+                    userId,
+                    post.getUserId()
+            );
         }
     }
 }

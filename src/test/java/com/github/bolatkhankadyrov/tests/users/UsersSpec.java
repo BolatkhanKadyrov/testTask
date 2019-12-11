@@ -1,4 +1,4 @@
-package com.github.bolatkhankadyrov.tests.usersPath;
+package com.github.bolatkhankadyrov.tests.users;
 
 import com.github.bolatkhankadyrov.helpers.models.UserModel;
 import com.github.bolatkhankadyrov.matchers.UsersMatcher;

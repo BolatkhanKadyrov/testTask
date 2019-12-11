@@ -1,6 +1,7 @@
 package com.github.bolatkhankadyrov.matchers;
 
 import com.github.bolatkhankadyrov.helpers.models.UserModel;
+import org.junit.Assert;
 
 import java.util.ArrayList;
 
@@ -20,9 +21,6 @@ public class UsersMatcher {
             errors.add("\nField username:\n\tExpected:\t" + expectedUser.getUsername() + "\n\tActual:\t" + actualUser.getUsername());
         }
 
-        if (errors.size() > 0) {
-            System.out.println("ResultDialog has errors:\n" + errors);
-            throw new AssertionError();
-        }
+        Assert.assertEquals("ResultDialog has errors:\n" + errors, 0, errors.size());
     }
 }

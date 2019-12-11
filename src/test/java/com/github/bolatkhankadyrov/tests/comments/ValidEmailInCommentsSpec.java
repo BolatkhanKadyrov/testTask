@@ -1,10 +1,10 @@
-package com.github.bolatkhankadyrov.tests.commentsPath;
+package com.github.bolatkhankadyrov.tests.comments;
 
 import com.github.bolatkhankadyrov.helpers.models.CommentModel;
 import com.github.bolatkhankadyrov.helpers.models.PostModel;
 import com.github.bolatkhankadyrov.helpers.models.UserModel;
 import com.github.bolatkhankadyrov.helpers.utils.PostsUtils;
-import com.github.bolatkhankadyrov.matchers.CommonMatcher;
+import com.github.bolatkhankadyrov.matchers.CommentsMatcher;
 import com.github.bolatkhankadyrov.matchers.PostsMatcher;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
@@ -22,7 +22,7 @@ import static com.github.bolatkhankadyrov.helpers.utils.CommentsUtils.responseTo
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class CommentsTest {
+public class ValidEmailInCommentsSpec {
     private static RequestSpecification spec;
 
     @BeforeClass
@@ -61,19 +61,6 @@ public class CommentsTest {
         List<CommentModel> actualComments = responseToComments(responseComments);
 
         // then
-        for (PostModel actualPost : actualPosts) {
-            for (CommentModel comment : actualComments) {
-                if (comment.getPostId() == actualPost.getId()) {
-                    if(!CommonMatcher.isValidEmail(comment.getEmail())){
-                        System.out.println(
-                                "comment with id: " + comment.getId()
-                                + " in post with postId: " + actualPost.getId()
-                                + " has no valid email"
-                        );
-                        throw new AssertionError();
-                    }
-                }
-            }
-        }
+        CommentsMatcher.commentsInPostsHasCorrectEmail(actualComments, actualPosts);
     }
 }
