@@ -27,7 +27,7 @@ public abstract class BaseRestClient {
         return objectMapper.writeValueAsString(model);
     }
 
-    public static <T> List<T> ResponseToModels(Response response, T model) throws IOException {
+    public static <T> List<T> responseToModels(Response response, T model) throws IOException {
         String listOsPostsByUserId = BaseRestClient.writeValueAsString(response.jsonPath().get());
 
         ObjectMapper objectMapper = new ObjectMapper();

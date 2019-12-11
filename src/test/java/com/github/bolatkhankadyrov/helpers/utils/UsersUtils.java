@@ -12,10 +12,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.github.bolatkhankadyrov.Constants.USERNAME;
+
 public class UsersUtils extends BaseRestClient {
     public static List<UserModel> getUsersByUsername(String username) throws IOException {
         Map<String, String> param = new HashMap<>();
-        param.put("username", username);
+        param.put(USERNAME, username);
 
         Response response = fetch(Constants.USERS_PATH, param);
 
@@ -29,7 +31,7 @@ public class UsersUtils extends BaseRestClient {
         return objectMapper.readValue(listOsUsersByUsername, typeReference);
     }
 
-    public static List<UserModel> ResponseToUsers(Response response) throws IOException {
+    public static List<UserModel> responseToUsers(Response response) throws IOException {
         String listOfUsers = BaseRestClient.writeValueAsString(response.jsonPath().get());
 
         ObjectMapper objectMapper = new ObjectMapper();

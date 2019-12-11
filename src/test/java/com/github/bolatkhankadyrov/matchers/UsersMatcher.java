@@ -5,7 +5,7 @@ import com.github.bolatkhankadyrov.helpers.models.UserModel;
 import java.util.ArrayList;
 
 public class UsersMatcher {
-    public void correctUser(UserModel expectedUser, UserModel actualUser) {
+    public static void correctUser(UserModel expectedUser, UserModel actualUser) {
         ArrayList<String> errors = new ArrayList<>();
 
         if (!expectedUser.getId().equals(actualUser.getId())) {
