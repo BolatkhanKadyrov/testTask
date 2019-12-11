@@ -64,7 +64,7 @@ public class CommentsTest {
         for (PostModel actualPost : actualPosts) {
             for (CommentModel comment : actualComments) {
                 if (comment.getPostId() == actualPost.getId()) {
-                    if(!CommonMatcher.isValidEmail(comment.getEmail())){
+                    if(!CommonMatcher.isValidEmail("comment.getEmail()")){
                         System.out.println(
                                 "comment with id: " + comment.getId()
                                 + " in post with postId: " + actualPost.getId()
